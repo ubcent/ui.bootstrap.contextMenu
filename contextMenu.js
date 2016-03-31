@@ -253,7 +253,8 @@ angular.module('ui.bootstrap.contextMenu', [])
         contextMenus.push($ul);
     };
     return function ($scope, element, attrs) {
-        element.on('contextmenu', function (event) {
+        var trigger = (attrs.contextMenuTrigger || 'contextmenu');
+        element.on(trigger, function (event) {
             event.stopPropagation();
             $scope.$apply(function () {
                 event.preventDefault();
